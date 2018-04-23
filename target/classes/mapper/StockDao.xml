@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cc.stock.dao.StockSelectDao">
+
+    <insert id="addStock"  parameterType="com.cc.stock.entity.Stock">
+
+        INSERT INTO selected_stock (user_id,stock_id) VALUE (#{user_id},#{stock_id})
+
+    </insert>
+
+    <select id="checkById" resultType="Stock" parameterType="com.cc.stock.entity.Stock">
+
+        select * from selected_stock where user_id = #{user_id} and stock_id = #{stock_id}
+
+    </select>
+
+    <delete id="deleteStock"  parameterType="com.cc.stock.entity.Stock">
+
+        delete from selected_stock where user_id = #{user_id} and stock_id = #{stock_id}
+
+    </delete>
+
+    <select id="findById" resultType="com.cc.stock.entity.Stock">
+
+        select stock_id stockId FROM selected_stock where user_id = #{user_id}
+
+    </select>
+
+    <select id="findHistoryById" resultType="com.cc.stock.entity.Deal">
+
+        SELECT * FROM deal WHERE user_id = #{user_id}
+
+    </select>
+
+</mapper>

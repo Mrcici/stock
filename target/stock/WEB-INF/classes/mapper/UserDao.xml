@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stock.lgc.dao.UserDao">
+    <!-- 目的：为DAO接口方法提供sql语句配置 -->
+    <!-- 查询用户和密码进行登录 -->
+    <!-- id是Dao中的方法名，resultType是返回类型，parameterType是参数类型 -->
+    <select id="findByUsername" resultType="User" parameterType="String">
+
+        select * from user where username = #{username}
+
+    </select>
+</mapper>
